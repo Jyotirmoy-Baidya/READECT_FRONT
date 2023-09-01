@@ -57,11 +57,14 @@ const ProfileProvider = ({ children }) => {
             const resp = await axios.get(url);
             if (resp.data.status === "Success") {
                 dispatch({ type: "LOGGED_IN" });
+                return true;
             } else {
                 dispatch({ type: "LOGGED_OUT" });
+                return false;
             }
         } catch (error) {
             dispatch({ type: "LOGGED_OUT" });
+            return false;
         }
     };
 

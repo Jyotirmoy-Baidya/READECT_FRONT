@@ -17,13 +17,16 @@ import OtherProfile from "./components/Profile/OtherProfile";
 
 const LoggedCheckAPI = "/api/v1/reader/ifLoggedIn";
 const MyProfileApi = "/api/v1/reader/"
+const sd = { "proxy": "http://localhost:3737" };
 
 const App = () => {
   const { checkLogin, loggedInStatus, getMyProfile } = useProfileContext();
 
   useEffect(() => {
-    checkLogin(LoggedCheckAPI);
-    getMyProfile(MyProfileApi);
+    const check = checkLogin(LoggedCheckAPI);
+    if (check) {
+      getMyProfile(MyProfileApi);
+    }
   }, [loggedInStatus]);
   return (
     <BrowserRouter>

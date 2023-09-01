@@ -13,7 +13,7 @@ const APIThapa = "https://api.pujakaitem.com/api/products";
 
 const ContentsAPI = "/api/v1/reader";
 const Search = "/api/v1/reader/poem/search";
-const chec = "sdd";
+
 let type = "";
 
 const tags = [];
